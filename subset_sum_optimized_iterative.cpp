@@ -1,15 +1,16 @@
 // time complexity -> O(n* target_sum)
 // space complexity -> O(target_sum)
-bool subsetSum(vector<int>& arr, int target) 
+// works for positive integer array only
+int subsetSum(vector<int>& arr, int target) 
 {
-    vector<bool> dp(target + 1, false);
-    dp[0] = true;
+    vector<int> dp(target + 1, 0);
+    dp[0] = 1;
 
     for (auto val : arr) 
     {
-        for (int t = target; val<= t; t--) 
+        for (int t = target; t-val >= 0; t--) 
         {
-            if (dp[t - val]) dp[t] = true;
+            if (dp[t - val]) dp[t] += dp[t-val];
         }
     }
     
