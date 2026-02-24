@@ -2,6 +2,7 @@
 // space complexity -> O(target_sum)
 // works for positive integer array only
 // number of subsets can grow very fast, may need to use boolean dp or mod
+const int mod = 1e9+7;
 int subsetSum(vector<int>& arr, int target) 
 {
     vector<int> dp(target + 1, 0);
@@ -12,6 +13,7 @@ int subsetSum(vector<int>& arr, int target)
         for (int t = target; t-val >= 0; t--) 
         {
             dp[t] += dp[t-val];
+            dp[t]%=mod;
         }
     }
     
