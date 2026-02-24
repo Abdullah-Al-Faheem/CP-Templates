@@ -4,7 +4,9 @@ int dp[M][M]; // mem(dp, -1); // [M, target_sum]
 
 // call with subset_sum(n, target_sum) 
 // to get how many ways can we get the target sum
-int subset_sum(int i, int bagCapacity) // O(n* target_sum)
+// number of subsets can grow very fast, may need to use boolean dp or mod
+// O(n* target_sum)
+int subset_sum(int i, int bagCapacity) // call by subset_sum(n, target_sum)
 {
     if (bagCapacity == 0 and i == 0) return 1;
     if (i== 0) return 0;
