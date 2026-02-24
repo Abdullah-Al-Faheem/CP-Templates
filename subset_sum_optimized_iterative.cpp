@@ -10,7 +10,7 @@ int subsetSum(vector<int>& arr, int target)
     {
         for (int t = target; t-val >= 0; t--) 
         {
-            if (dp[t - val]) dp[t] += dp[t-val];
+            dp[t] += dp[t-val];
         }
     }
     
