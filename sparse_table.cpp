@@ -10,8 +10,17 @@ void build(int n)
     for (int i = 1; i <= n; i++) sparse[i][0]=num[i];
 
     for (int j = 1; j <= m; j++)
-        for (int i = 1; i +(1<<j) -1 <= n; i++)
-            sparse[i][j]= min (sparse[i][j-1], sparse[i+(1<<(j-1))][j-1]); // change here
+    {  
+        // segment starts at index i ,has length 2^j; end = i + length - 1
+        for (int i = 1; i +(1<<j) -1 <= n; i++) 
+        {
+            // min from index i over a segment of length 2^j
+            sparse[i][j]= min  // change here
+            ( 
+                sparse[i][j-1], sparse[i+(1<<(j-1))][j-1] // overlapping segments
+            ); 
+        }
+    }
 }
 
 // call with query(L,R)
