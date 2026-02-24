@@ -16,6 +16,8 @@ void dfs(int src)
 
 void dfs2(int src)
 {
+    cerr<<src<<" ";
+
     status2[src] = true;    
 
     for (int child : adj2[src])
@@ -26,7 +28,9 @@ void dfs2(int src)
 
 void scc(void)
 {
-    int n, edge, a, b; cin>> edge;
+    int n, edge, a, b; 
+
+    cin>> n>>edge;
 
     for (int i = 1; i <= edge; i++)
     {
@@ -44,6 +48,8 @@ void scc(void)
         if(status2[finish.back()]) {finish.pop_back(); continue;} // second dfs status
 
         dfs2(finish.back());
+        cerr<<nl;
+
         finish.pop_back();
     }
 }
