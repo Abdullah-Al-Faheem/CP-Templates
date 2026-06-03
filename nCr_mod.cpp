@@ -1,5 +1,5 @@
-const int mod = 998244353;
-const int M = 2e5+5;
+const int mod = 998244353; // change here
+const int M = 2e5+5; // change here
 int fact[M];
 
 // call with precalc() at the start of the main()
