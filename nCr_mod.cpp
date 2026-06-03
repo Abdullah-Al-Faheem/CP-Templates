@@ -2,7 +2,8 @@ const int mod = 998244353;
 const int M = 2e5+5;
 int fact[M];
 
-void precalc(void)
+// call with precalc() at the start of the main()
+void precalc(void) 
 {
     fact[0]=1;
     
